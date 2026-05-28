@@ -1,0 +1,16 @@
+services:
+  postgres:
+    container_name: sea-postgres
+    image: postgres:18
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: stackexchange
+      POSTGRES_USER: stackexchange
+      POSTGRES_PASSWORD: password
+    ports:
+      - 5433:5432
+    volumes:
+      - sea_postgres_data:/var/lib/postgresql
+
+volumes:
+  sea_postgres_data:
